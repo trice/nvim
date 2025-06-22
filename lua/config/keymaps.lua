@@ -6,3 +6,6 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find f
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+
+-- Show a diagnostic float with the diagnostic Warning, Error, Information
+vim.keymap.set('n', 'gl', function() vim.diagnostic.open_float() end, { desc='Open diagnostic message float' })
