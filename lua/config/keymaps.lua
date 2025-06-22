@@ -9,3 +9,8 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help ta
 
 -- Show a diagnostic float with the diagnostic Warning, Error, Information
 vim.keymap.set('n', 'gl', function() vim.diagnostic.open_float() end, { desc='Open diagnostic message float' })
+
+-- Debugger keymappings
+vim.keymap.set('n', '<leader>db', ":DapToggleBreakpoint<CR>", { desc='Set a breakpoint', noremap=true })
+vim.keymap.set('n', '<leader>dc', ":DapContinue<CR>", { desc='Continue or Run the program', noremap=true })
+

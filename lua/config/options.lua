@@ -67,3 +67,5 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 -- Show more context
 vim.o.scrolloff = 10
 
+-- Clipboard config
+vim.o.clipboard = "unnamedplus"
