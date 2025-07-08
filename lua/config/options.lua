@@ -69,3 +69,6 @@ vim.o.scrolloff = 10
 
 -- Clipboard config
 vim.o.clipboard = "unnamedplus"
+
+-- column for line length
+vim.opt_local.colorcolumn = "80"
