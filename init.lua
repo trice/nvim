@@ -1,4 +1,5 @@
 require("config.lazy")
+
 require("cyberdream").setup({
     -- Set light or dark variant
     variant = "default", -- use "light" for the light variant. Also accepts "auto" to set dark or light colors based on the current value of `vim.o.background`
@@ -71,4 +72,17 @@ require("cyberdream").setup({
         ...
     },
 })
+
+require('dap-go').setup({
+  dap_configurations = {
+    {
+      type = "go",
+      name = "Debug (Build Flags)",
+      request = "launch",
+      program = "${file}",
+      buildFlags = require("dap-go").get_build_flags,
+    },
+  },
+})
+
 vim.cmd("colorscheme cyberdream")
