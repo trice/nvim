@@ -85,4 +85,24 @@ require('dap-go').setup({
   },
 })
 
+require('dap').adapters.coreclr = {
+  type = 'executable',
+  command = 'netcoredbg',
+  args = {'--interpreter=vscode'}
+}
+
+-- A lot of configuration is super confusing for nvim so I'm just putting this here
+-- for the time being
+require('dap').configurations.cs = {
+  {
+    type = "coreclr",
+    name = "launch - netcoredbg",
+    request = "launch",
+    program = function()
+        return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug/', 'file')
+    end,
+  },
+}
+
+
 vim.cmd("colorscheme cyberdream")
