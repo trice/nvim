@@ -198,7 +198,9 @@ return  {
       gopls = {},
       pyright = {},
       cmake = {},
-      omnisharp = {},
+      omnisharp = {
+        cmd = "dotnet", "/home/terryrice/.local/share/omnisharp/omnisharp-linux-x64/omnisharp/OmniSharp.Stdio.dll"
+      },
       -- rust_analyzer = {},
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
       --
