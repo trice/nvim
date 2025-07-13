@@ -13,4 +13,7 @@ vim.keymap.set('n', 'gl', function() vim.diagnostic.open_float() end, { desc='Op
 -- Debugger keymappings
 vim.keymap.set('n', '<leader>db', ":DapToggleBreakpoint<CR>", { desc='Set a breakpoint', noremap=true })
 vim.keymap.set('n', '<leader>dc', ":DapContinue<CR>", { desc='Continue or Run the program', noremap=true })
-
+vim.keymap.set('n', '<F8>', ":DapStepOver<CR>", { desc='Step Over', noremap=true })
+vim.keymap.set('n', '<F7>', ":DapStepInto<CR>", { desc='Step Into', noremap=true })
+vim.keymap.set('n', '<F9>', ":DapContinue<CR>", { desc='Continue or Run the program', noremap=true })
+vim.keymap.set('n', '<F19>', ":DapStepOut<CR>", { desc='Step Out', noremap=true })
