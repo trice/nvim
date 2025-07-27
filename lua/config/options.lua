@@ -12,6 +12,7 @@ vim.g.editorconfig = true
 -- Make line numbers default
 vim.o.number = true
 vim.o.relativenumber = true
+vim.o.wrap = false
 
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
@@ -35,6 +36,8 @@ vim.o.softtabstop = 4
 
 -- Show cursor line
 vim.o.cursorline = true
+-- Cursor settings
+vim.opt.guicursor = "n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 
 -- undo files
 vim.o.undofile = true
@@ -42,7 +45,8 @@ vim.o.undofile = true
 -- User smart casing for search
 vim.o.ignorecase = true
 vim.o.smartcase = true
-
+vim.o.hlsearch = false                           -- Don't highlight search results 
+vim.o.incsearch = true  
 
 -- Show the sign column (language server column with warning, etc.)
 vim.o.signcolumn = "yes"
@@ -69,9 +73,10 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Show more context
 vim.o.scrolloff = 10
+vim.o.sidescrolloff = 8
 
 -- Clipboard config
 vim.o.clipboard = "unnamedplus"
 
 -- column for line length
-vim.opt_local.colorcolumn = "80"
+vim.opt_local.colorcolumn = "90"
