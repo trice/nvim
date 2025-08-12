@@ -5,7 +5,7 @@ require("cyberdream").setup({
     variant = "default", -- use "light" for the light variant. Also accepts "auto" to set dark or light colors based on the current value of `vim.o.background`
 
     -- Enable transparent background
-    transparent = true,
+    transparent = false,
 
     -- Reduce the overall saturation of colours for a more muted look
     saturation = 1, -- accepts a value between 0 and 1. 0 will be fully desaturated (greyscale) and 1 will be the full color (default)
@@ -17,7 +17,7 @@ require("cyberdream").setup({
     hide_fillchars = false,
 
     -- Apply a modern borderless look to pickers like Telescope, Snacks Picker & Fzf-Lua
-    borderless_pickers = false,
+    borderless_pickers = true,
 
     -- Set terminal colors used in `:terminal`
     terminal_colors = true,
@@ -110,5 +110,45 @@ require('dap').configurations.cs = {
   },
 }
 
+-- Adapter configuration for codelldb
+require('dap').adapters.codelldb = {
+  type = "executable",
+  command = "codelldb", -- Assumes codelldb is in $PATH; adjust to absolute path if needed
+  name = "codelldb",
+}
+
+-- Debug configuration for C
+require('dap').configurations.c = {
+  {
+    name = "Launch",
+    type = "codelldb",
+    request = "launch",
+    program = function()
+      return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+    end,
+    cwd = "${workspaceFolder}",
+    stopOnEntry = false,
+    args = {}, -- Optional: Add command-line arguments if needed
+    runInTerminal = false,
+  },
+  {
+      name = "Launch with Prompted Arguments",
+      type = "codelldb",
+      request = "launch",
+      program = function()
+        return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+      end,
+      cwd = "${workspaceFolder}",
+      stopOnEntry = false,
+      args = function()
+        local input = vim.fn.input("Command-line arguments (space-separated): ", "", "file")
+        if input == "" then
+          return {}
+        end
+        return vim.split(input, " ", { trimempty = true })
+      end,
+      runInTerminal = false,
+  },
+}
 
 vim.cmd("colorscheme cyberdream")

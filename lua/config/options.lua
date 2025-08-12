@@ -4,6 +4,8 @@ vim.g.have_nerd_font = true
 -- Make sure editorconfig is on always
 vim.g.editorconfig = true
 
+vim.o.winborder = "rounded"
+
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
@@ -79,4 +81,4 @@ vim.o.sidescrolloff = 8
 vim.o.clipboard = "unnamedplus"
 
 -- column for line length
-vim.opt_local.colorcolumn = "90"
+vim.opt.colorcolumn = "90"

@@ -33,6 +33,8 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to bottom window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to top window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 
+vim.keymap.set("n", "<leader>lsr", ":lua vim.lsp.stop_client(vim.lsp.get_clients())<CR>:e<CR>", { desc='reload the LSP for the file', noremap=true })
+
 -- ============================================================================
 -- FLOATING TERMINAL
 -- ============================================================================
